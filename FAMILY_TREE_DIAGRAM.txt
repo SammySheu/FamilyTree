@@ -1,0 +1,210 @@
+================================================================================
+                        FAMILY TREE VISUAL DIAGRAM
+================================================================================
+
+Legend:
+  ♂ = Male
+  ♀ = Female
+  ═ = Marriage/Partnership
+  | = Parent-Child relationship
+  
+================================================================================
+                           GENERATION 1
+================================================================================
+
+                John ♂ ═══════════ Mary ♀
+                    |                |
+        ┌───────────┼────────────────┼───────────┐
+        |           |                             |
+        |           |                             |
+    (children)   (children)                   (children)
+
+
+            Robert ♂ ═══════════ Patricia ♀
+                    |                |
+            ┌───────┴────────────────┴───────┐
+            |                                |
+        (children)                      (children)
+
+
+================================================================================
+                           GENERATION 2
+================================================================================
+
+Children of John & Mary:
+    1. David ♂      (married Linda)
+    2. Susan ♀      (has children)
+    3. Michael ♂    (has children)
+
+Children of Robert & Patricia:
+    1. Linda ♀      (married David)
+    2. James ♂      (has children)
+
+
+    David ♂ ═══════════ Linda ♀
+        |                  |
+    ┌───┴──────────────────┴───┐
+    |                          |
+(children)                 (children)
+
+
+        Susan ♀                    Michael ♂
+           |                          |
+    ┌──────┴──────┐           ┌───────┴───────┐
+    |             |           |               |
+(children)    (children)  (children)      (children)
+
+
+        James ♂                  Jennifer ♀
+           |                         |
+    ┌──────┴──────┐                 |
+    |             |             (children)
+(children)    (children)
+
+
+================================================================================
+                           GENERATION 3
+================================================================================
+
+Children of David & Linda:
+    1. William ♂
+    2. Jennifer ♀ (has daughter Jessica)
+
+Children of Susan:
+    1. Thomas ♂
+    2. Elizabeth ♀
+
+Children of Michael:
+    1. Daniel ♂
+    2. Sarah ♀
+
+Children of James:
+    1. Emily ♀
+    2. Christopher ♂
+
+Children of Jennifer (Gen 3):
+    1. Jessica ♀
+
+
+================================================================================
+                        COMPLETE FAMILY TREE
+================================================================================
+
+                    John ♂ ══════════ Mary ♀
+                         |            |
+         ┌───────────────┼────────────┼───────────┐
+         |               |                        |
+      David ♂         Susan ♀                 Michael ♂
+         |               |                        |
+         |        ┌──────┴──────┐         ┌───────┴───────┐
+         |        |             |         |               |
+         |     Thomas ♂    Elizabeth ♀  Daniel ♂        Sarah ♀
+         |
+         |
+    (married Linda)
+         |
+    David ♂ ══════════ Linda ♀
+         |               |
+    ┌────┴───────────────┴────┐
+    |                         |
+ William ♂                Jennifer ♀
+                               |
+                          Jessica ♀
+
+
+                Robert ♂ ══════════ Patricia ♀
+                        |              |
+                ┌───────┴──────────────┴────┐
+                |                           |
+            Linda ♀                      James ♂
+         (married David)                    |
+                                     ┌──────┴──────┐
+                                     |             |
+                                  Emily ♀    Christopher ♂
+
+
+================================================================================
+                        RELATIONSHIP EXAMPLES
+================================================================================
+
+SIBLINGS (share at least one parent):
+  - David, Susan, Michael (children of John & Mary)
+  - Linda, James (children of Robert & Patricia)
+  - William, Jennifer (children of David & Linda)
+  - Thomas, Elizabeth (children of Susan)
+  - Daniel, Sarah (children of Michael)
+  - Emily, Christopher (children of James)
+
+COUSINS (their parents are siblings):
+  - William & Thomas (David's son & Susan's son)
+  - William & Elizabeth (David's son & Susan's daughter)
+  - William & Daniel (David's son & Michael's son)
+  - William & Sarah (David's son & Michael's daughter)
+  - Jennifer & Thomas (David's daughter & Susan's son)
+  - Jennifer & Elizabeth (David's daughter & Susan's daughter)
+  - Jennifer & Daniel (David's daughter & Michael's son)
+  - Jennifer & Sarah (David's daughter & Michael's daughter)
+  - Thomas & Daniel (Susan's son & Michael's son)
+  - Thomas & Elizabeth (Susan's son & Susan's daughter - NO, these are siblings!)
+  - Daniel & Sarah (Michael's children - NO, these are siblings!)
+
+  Note: William is NOT a cousin of Emily or Christopher because
+  his parent (David) and their parent (James) are not siblings.
+  Linda (William's mother) and James are siblings, making them
+  more complex relatives.
+
+GRANDPARENTS:
+  - John & Mary are grandparents of: William, Jennifer, Thomas, 
+    Elizabeth, Daniel, Sarah
+  - Robert & Patricia are grandparents of: William, Jennifer, 
+    Emily, Christopher
+
+GREAT-GRANDPARENTS:
+  - John & Mary are great-grandparents of Jessica
+  - Robert & Patricia are great-grandparents of Jessica
+
+AUNTS/UNCLES:
+  - Susan is aunt to: William, Jennifer
+  - Michael is uncle to: William, Jennifer, Thomas, Elizabeth
+  - David is uncle to: Thomas, Elizabeth, Daniel, Sarah
+  - James is uncle to: William, Jennifer
+  - Linda is aunt to: Emily, Christopher
+
+================================================================================
+                        GENERATIONAL DEPTH
+================================================================================
+
+Generation 1: John, Mary, Robert, Patricia (4 people)
+Generation 2: David, Susan, Michael, Linda, James (5 people)
+Generation 3: William, Jennifer, Thomas, Elizabeth, Daniel, Sarah, 
+              Emily, Christopher (8 people)
+Generation 4: Jessica (1 person)
+
+Total Family Members: 18 people
+  - Males: 10 (John, David, Michael, Robert, James, William, Thomas, 
+           Daniel, Christopher)
+  - Females: 9 (Mary, Susan, Linda, Patricia, Jennifer, Elizabeth, 
+            Sarah, Emily, Jessica)
+
+================================================================================
+                        ANCESTOR CHAINS
+================================================================================
+
+Example: Ancestors of William
+  William <- David <- John
+  William <- David <- Mary
+  William <- Linda <- Robert
+  William <- Linda <- Patricia
+
+Example: Descendants of John
+  John -> David -> William
+  John -> David -> Jennifer -> Jessica
+  John -> Susan -> Thomas
+  John -> Susan -> Elizabeth
+  John -> Michael -> Daniel
+  John -> Michael -> Sarah
+
+================================================================================
+                        END OF DIAGRAM
+================================================================================
+
