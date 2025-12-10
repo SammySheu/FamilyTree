@@ -1,0 +1,329 @@
+Query 1: Who are the parents of david?
+-----------------------------------------
+?- parent(X, david).
+
+Expected Output:
+X = john ;
+X = mary.
+
+
+Query 2: Is john male?
+-----------------------------------------
+?- male(john).
+
+Expected Output:
+true.
+
+
+Query 3: Who are the children of john?
+-----------------------------------------
+?- parent(john, X).
+
+Expected Output:
+X = david ;
+X = susan ;
+X = michael.
+
+
+Query 4: Who are john's sons?
+-----------------------------------------
+?- son(X, john).
+
+Expected Output:
+X = david ;
+X = michael.
+
+
+Query 5: Who are john's daughters?
+-----------------------------------------
+?- daughter(X, john).
+
+Expected Output:
+X = susan.
+
+
+Query 6: Who are the grandparents of william?
+-----------------------------------------
+?- grandparent(X, william).
+
+Expected Output:
+X = john ;
+X = mary ;
+X = robert ;
+X = patricia.
+
+
+Query 7: Is john a grandfather of william?
+-----------------------------------------
+?- grandfather(john, william).
+
+Expected Output:
+true.
+
+
+Query 8: Who are mary's grandchildren?
+-----------------------------------------
+?- grandchild(X, mary).
+
+Expected Output:
+X = william ;
+X = jennifer ;
+X = thomas ;
+X = elizabeth ;
+X = daniel ;
+X = sarah.
+
+
+Query 9: List all of john's grandchildren
+-----------------------------------------
+?- findall(X, grandchild(X, john), Grandchildren).
+
+Expected Output:
+Grandchildren = [william, jennifer, thomas, elizabeth, daniel, sarah].
+
+
+Query 10: Who are david's siblings?
+-----------------------------------------
+?- sibling(X, david).
+
+Expected Output:
+X = susan ;
+X = michael ;
+X = susan ;
+X = michael.
+
+Note: Duplicates may appear because each shared parent creates a match.
+To get unique siblings, use: all_siblings(david, X).
+
+
+Query 11: Get all unique siblings of david
+-----------------------------------------
+?- all_siblings(david, Siblings).
+
+Expected Output:
+Siblings = [michael, susan].
+
+
+Query 12: Are david and susan siblings?
+-----------------------------------------
+?- sibling(david, susan).
+
+Expected Output:
+true.
+
+
+Query 13: Who are michael's brothers?
+-----------------------------------------
+?- brother(X, michael).
+
+Expected Output:
+X = david ;
+X = david.
+
+
+Query 14: Who are michael's sisters?
+-----------------------------------------
+?- sister(X, michael).
+
+Expected Output:
+X = susan ;
+X = susan.
+
+
+Query 15: Are david and linda full siblings (share both parents)?
+-----------------------------------------
+?- full_sibling(david, linda).
+
+Expected Output:
+false.
+
+(They are not siblings at all - different parents)
+
+
+Query 16: Who are thomas's cousins?
+-----------------------------------------
+?- cousin(X, thomas).
+
+Expected Output:
+X = william ;
+X = jennifer ;
+X = daniel ;
+X = sarah.
+
+
+Query 17: Are william and thomas cousins?
+-----------------------------------------
+?- cousin(william, thomas).
+
+Expected Output:
+true.
+
+
+Query 18: Get all cousins of william
+-----------------------------------------
+?- all_cousins(william, Cousins).
+
+Expected Output:
+Cousins = [daniel, jennifer, sarah, thomas].
+
+
+Query 19: Is emily a cousin of william?
+-----------------------------------------
+?- cousin(emily, william).
+
+Expected Output:
+false.
+
+(Emily's parent james is a sibling of linda, but linda is william's parent,
+so they are not cousins - william is emily's nephew/niece relationship)
+
+
+Query 20: Who are william's aunts?
+-----------------------------------------
+?- aunt(X, william).
+
+Expected Output:
+X = susan ;
+X = susan.
+
+
+Query 21: Who are william's uncles?
+-----------------------------------------
+?- uncle(X, william).
+
+Expected Output:
+X = michael ;
+X = james ;
+X = michael.
+
+
+Query 22: Who are all of john's descendants?
+-----------------------------------------
+?- all_descendants(john, Descendants).
+
+Expected Output:
+Descendants = [daniel, david, elizabeth, jennifer, michael, sarah, susan, 
+               thomas, william].
+
+
+Query 23: Is john an ancestor of william?
+-----------------------------------------
+?- ancestor(john, william).
+
+Expected Output:
+true.
+
+
+Query 24: Who are william's ancestors?
+-----------------------------------------
+?- all_ancestors(william, Ancestors).
+
+Expected Output:
+Ancestors = [david, john, linda, mary, patricia, robert].
+
+
+Query 25: Find all descendants of mary (recursive demonstration)
+-----------------------------------------
+?- descendant(X, mary).
+
+Expected Output:
+X = david ;
+X = susan ;
+X = michael ;
+X = william ;
+X = jennifer ;
+X = thomas ;
+X = elizabeth ;
+X = daniel ;
+X = sarah.
+
+(This demonstrates recursion: direct children first, then grandchildren)
+
+
+Query 26: How many generations down from john is william?
+-----------------------------------------
+This requires tracing the ancestor path manually:
+?- ancestor(john, X), ancestor(X, william).
+
+Expected Output:
+X = david ;
+X = mary.
+
+(william is 2 generations below john through david or mary as intermediaries)
+
+
+Query 27: Find all people who are both siblings and have children
+-----------------------------------------
+?- sibling(X, Y), parent(X, _), parent(Y, _), X @< Y.
+
+Expected Output:
+X = david, Y = michael ;
+X = david, Y = susan ;
+X = michael, Y = susan.
+
+
+Query 28: Find all grandfather-grandson relationships
+-----------------------------------------
+?- grandfather(X, Y), male(Y).
+
+Expected Output:
+X = john, Y = william ;
+X = john, Y = thomas ;
+X = john, Y = daniel ;
+X = robert, Y = william ;
+X = robert, Y = thomas ;
+X = robert, Y = daniel ;
+... (and more combinations)
+
+
+Query 29: Who has the most children?
+-----------------------------------------
+?- all_children(X, Children), length(Children, N), N > 2.
+
+Expected Output:
+X = john, Children = [david, susan, michael], N = 3 ;
+X = mary, Children = [david, susan, michael], N = 3.
+
+
+Query 30: List all female descendants of mary
+-----------------------------------------
+?- descendant(X, mary), female(X).
+
+Expected Output:
+X = susan ;
+X = jennifer ;
+X = elizabeth ;
+X = sarah.
+
+
+Query 31: If X is a cousin of Y, is Y a cousin of X? (Symmetry test)
+-----------------------------------------
+?- cousin(william, thomas), cousin(thomas, william).
+
+Expected Output:
+true.
+
+(This demonstrates that the cousin relationship is symmetric)
+
+
+Query 32: Can someone be their own ancestor?
+-----------------------------------------
+?- ancestor(john, john).
+
+Expected Output:
+false.
+
+(This shows proper termination of recursion)
+
+
+Query 33: Find common ancestors of two people
+-----------------------------------------
+?- ancestor(X, william), ancestor(X, thomas).
+
+Expected Output:
+X = john ;
+X = mary.
+
+(william and thomas share grandparents john and mary)
+
+
